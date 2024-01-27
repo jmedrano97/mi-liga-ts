@@ -9,6 +9,24 @@ import {
   RiBardFill,
 } from 'react-icons/ri';
 import Header from "../components/shared/Header";
+import { Leagues } from '../components/Leagues';
+
+const mockLigas = [
+  {
+    id: 1,
+    img: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/Liga_MX_logo_%282020%29.svg/1200px-Liga_MX_logo_%282020%29.svg.png",
+    description: "description",
+    name: "Liga MX",
+    link: "https://www.google.com",
+  },
+  {
+    id: 2,
+    img: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/Liga_MX_logo_%282020%29.svg/1200px-Liga_MX_logo_%282020%29.svg.png",
+    description: "description",
+    name: "Liga ONE",
+    link : "www.facebook.com"
+  }
+]
 
 function AllLeagues(): JSX.Element {
   const [showMenu, setShowMenu] = useState<boolean>(false);
@@ -23,6 +41,8 @@ function AllLeagues(): JSX.Element {
     setShowOrder(!showOrder);
     setShowMenu(false);
   };
+
+  const [ligas] = useState(mockLigas)
 
   return (
     <div className="bg-[#262837] w-full min-h-screen">
@@ -55,7 +75,7 @@ function AllLeagues(): JSX.Element {
           </div>
           {/* Content */}
           <div className="p-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-16">
-
+            <Leagues leagues={ligas} />
           </div>
 
         </div>

@@ -12,3 +12,13 @@ export type TodoCompleted = Pick<Todo, "completed">;
 export type ListOfTodos = Todo[];
 
 export type FilterValue = typeof TODO_FILTERS[keyof typeof TODO_FILTERS];
+
+export interface Leagues {
+    id: id;
+    img: string;
+    description: string;
+    name: string;
+    link: string;
+  }
+  
+export type ListOfLeagues = Leagues[];
