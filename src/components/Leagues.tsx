@@ -10,7 +10,7 @@ type Props = {
 export const Leagues: React.FC<Props> = ({ leagues }) => {
 
   return (
-    <ul>
+    <div className="p-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-16">
       {leagues.map((liga) => (
         <CardLeague 
           id={liga.id}
@@ -20,6 +20,6 @@ export const Leagues: React.FC<Props> = ({ leagues }) => {
           link={liga.link}
         />
       ))}
-    </ul>
+    </div>
   );
 };

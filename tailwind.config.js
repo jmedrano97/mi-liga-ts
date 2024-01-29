@@ -8,6 +8,7 @@ export default {
     extend: {
       backgroundColor: {
         'first': '#ec7c6a',
+        'first-hover': '#1f1d2b',
         'second': '#6c757d',
         'back1': '#262837',
         'back2': '#1F1D2B',

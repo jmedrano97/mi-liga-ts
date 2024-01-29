@@ -45,7 +45,7 @@ function AllLeagues(): JSX.Element {
   const [ligas] = useState(mockLigas)
 
   return (
-    <div className="bg-[#262837] w-full min-h-screen">
+    <div className="w-full min-h-screen">
       {/* <ComplementMenu showOrder={showOrder} setShowOrder={setShowOrder} /> */}
       {/* Menu movil */}
       <nav className="bg-[#1F1D2B] lg:hidden fixed w-full bottom-0 left-0 text-3xl text-gray-400 py-2 px-8 flex items-center justify-between rounded-tl-xl rounded-tr-xl">
@@ -69,14 +69,13 @@ function AllLeagues(): JSX.Element {
           {/* Title content */}
           <div className="flex items-center justify-between mb-16">
             <h2 className="text-xl text-gray-300">Selecciona tu league</h2>
-            <Link to="/add" className="flex items-center gap-1 text-first bg-[#1F1D2B] py-2 px-4 rounded-lg">
+            <Link to="/crear-liga" className="flex items-center gap-1 text-first bg-[#1F1D2B] py-2 px-4 rounded-lg">
               <RiBardFill />Crear MI league
             </Link>
           </div>
           {/* Content */}
-          <div className="p-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-16">
-            <Leagues leagues={ligas} />
-          </div>
+          
+          <Leagues leagues={ligas} />
 
         </div>
       </main>
