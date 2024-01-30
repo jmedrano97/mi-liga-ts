@@ -1,10 +1,12 @@
 import React, { useState } from 'react'
 import Header from '../components/shared/Header'
 import axios from 'axios';
-
+import LoadingOverlay from '../components/LoadingOverlay';
 
 
 function CreateLeague(): JSX.Element {
+    const [isLoading, setIsLoading] = useState(false);
+
     const [formData, setFormData] = useState({
         name: '',
         description: '',
@@ -21,21 +23,32 @@ function CreateLeague(): JSX.Element {
     };
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-        debugger;
+        setIsLoading(true);
         e.preventDefault();
         try {
             // Enviar los datos del formulario al servidor utilizando Axios
             const response = await axios.post('http://localhost:4000/api/v1/league', formData);
             // Manejar la respuesta exitosa del servidor
-            console.log(response.data); // o realiza alguna otra acción
+            console.log('Respuesta del servidor:', response);
+            // Limpiar el formulario (opcional)
+            setFormData({
+                name: '',
+                description: '',
+                league_link: '',
+                img: ''
+            });
+            setIsLoading(false);
+
         } catch (error) {
             // Manejar errores de la petición
             console.error('Error al enviar los datos:', error);
+            setIsLoading(false);
         }
     };
 
     return (
         <div className="flex flex-col min-h-screen rounded-lg md:p-8">
+            <LoadingOverlay isLoading={isLoading}/>
             <Header />
             <div className='flex justify-evenly' id='contenedor'>
                 <div className="p-8" id='formulario'>
