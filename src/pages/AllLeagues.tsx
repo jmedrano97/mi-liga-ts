@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 import {
   RiMenu3Fill,
   RiUser3Line,
@@ -10,23 +11,8 @@ import {
 } from 'react-icons/ri';
 import Header from "../components/shared/Header";
 import { Leagues } from '../components/Leagues';
+import { fetchLeagues } from '../api/ligas.api';
 
-const mockLigas = [
-  {
-    id: 1,
-    img: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/Liga_MX_logo_%282020%29.svg/1200px-Liga_MX_logo_%282020%29.svg.png",
-    description: "description",
-    name: "Liga MX",
-    link: "https://www.google.com",
-  },
-  {
-    id: 2,
-    img: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/Liga_MX_logo_%282020%29.svg/1200px-Liga_MX_logo_%282020%29.svg.png",
-    description: "description",
-    name: "Liga ONE",
-    link : "www.facebook.com"
-  }
-]
 
 function AllLeagues(): JSX.Element {
   const [showMenu, setShowMenu] = useState<boolean>(false);
@@ -42,7 +28,20 @@ function AllLeagues(): JSX.Element {
     setShowMenu(false);
   };
 
-  const [ligas] = useState(mockLigas)
+  const [ligas, setLeagues] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const leaguesData = await fetchLeagues();
+        setLeagues(leaguesData);
+      } catch (error) {
+        // Manejar errores aquí si es necesario
+      }
+    };
+
+    fetchData();
+  }, []);
 
   return (
     <div className="w-full min-h-screen">
