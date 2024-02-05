@@ -1,0 +1,7 @@
+---02/feb/2024
+agregar mensaje satisfactorio cuando se agregue o edite
+Agregar validaciónes en formulario de ligas
+
+
+-Rapidas:
+Ya esta el redux como estado del fomuralio, falta enviarlo a la base de datos

@@ -19,11 +19,11 @@ const Header: React.FC = () => {
         >
           Home
         </a>
-        <a href="#" className="py-2 pr-4">
+        <a href="/crear-liga" className="py-2 pr-4">
           Nueva Liga
         </a>
-        <a href="#" className="py-2 pr-4">
-          ¿Quienes somos?
+        <a href="/editar-liga/2" className="py-2 pr-4">
+          Editar Liga
         </a>
         <a href="#" className="py-2">
           Ver más

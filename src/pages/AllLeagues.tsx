@@ -12,9 +12,13 @@ import {
 import Header from "../components/shared/Header";
 import { Leagues } from '../components/Leagues';
 import { fetchLeagues } from '../api/ligas.api';
+import { useSelector } from "react-redux";
+import counterReducer from "../features/counter/counterSlice";
 
 
 function AllLeagues(): JSX.Element {
+  const counterState = useSelector((state: any) => state.counter);
+  console.log(counterState);
   const [showMenu, setShowMenu] = useState<boolean>(false);
   const [showOrder, setShowOrder] = useState<boolean>(false);
 
@@ -68,6 +72,7 @@ function AllLeagues(): JSX.Element {
           {/* Title content */}
           <div className="flex items-center justify-between mb-16">
             <h2 className="text-xl text-gray-300">Selecciona tu league</h2>
+            
             <Link to="/crear-liga" className="flex items-center gap-1 text-first bg-[#1F1D2B] py-2 px-4 rounded-lg">
               <RiBardFill />Crear MI league
             </Link>
