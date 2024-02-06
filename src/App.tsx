@@ -4,6 +4,7 @@ import TodoIndex from './pages/TodoIndex.tsx'
 import AllLeagues from './pages/AllLeagues.jsx'
 import CreateLeague from './pages/CreateLeague.tsx';
 import EditLeague from './pages/EditLeague.tsx';
+import OneLeague from './pages/OneLeague.tsx';
 
 const App = (): JSX.Element => {
   return (
@@ -11,6 +12,7 @@ const App = (): JSX.Element => {
       <Routes>
         <Route path="/" element={<AllLeagues />} />
         <Route path="/crear-liga" element={<CreateLeague />} />
+        <Route path="/mi-liga" element={<OneLeague />} />
         <Route path="/editar-liga/:id_league" element={<EditLeague />} />
         <Route path="/todo" element={<TodoIndex />} />
       </Routes>
