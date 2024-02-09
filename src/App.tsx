@@ -12,7 +12,7 @@ const App = (): JSX.Element => {
       <Routes>
         <Route path="/" element={<AllLeagues />} />
         <Route path="/crear-liga" element={<CreateLeague />} />
-        <Route path="/mi-liga" element={<OneLeague />} />
+        <Route path="/:league_id" element={<OneLeague />} />
         <Route path="/editar-liga/:id_league" element={<EditLeague />} />
         <Route path="/todo" element={<TodoIndex />} />
       </Routes>

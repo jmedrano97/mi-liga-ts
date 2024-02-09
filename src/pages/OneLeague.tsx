@@ -1,16 +1,45 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { RiAddLine, RiBardFill, RiMenu3Fill, RiPieChartLine, RiUser3Line } from 'react-icons/ri'
 import Header from '../components/shared/Header'
-import { Link } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 import Sidebar from '../components/shared/Sidebar'
 import HeaderLeague from '../components/shared/HeaderLeague'
 import SecondarySide from '../components/shared/SecondarySide'
+import LoadingOverlay from '../components/LoadingOverlay'
+import axios from 'axios'
+import { useDispatch, useSelector } from 'react-redux'
+import { setCurrentLeague } from '../features/leagues/LeagueCurrentSlice'
 
 const OneLeague = () => {
+    const { league_id } = useParams<{ league_id: string }>();
+    const [isLoading, setIsLoading] = useState(false);
     const [showMenu, setShowMenu] = useState(false);
     const [showOrder, setShowOrder] = useState(false);
+    const dispatch = useDispatch();
+    const ligaDetails = useSelector((state: any) => state.leagueCurrent);
+
+    useEffect(() => {
+        const fetchData = async () => {
+            setIsLoading(true);
+            try {
+                debugger
+                const response = await axios.get(`http://localhost:4000/api/v1/league/${league_id}`);
+                dispatch(setCurrentLeague(response.data));
+                console.log(response);
+            } catch (error) {
+                console.error('Error al obtener los datos:', error);
+            } finally {
+                setIsLoading(false);
+            }
+        };
+
+        fetchData();
+    }, [league_id]); // Asegúrate de incluir `id` como dependencia
+
   return (
     <div className="bg-[#262837] w-full min-h-screen">
+    <LoadingOverlay isLoading={isLoading}/>
+
     <Sidebar showMenu={showMenu} />
     <SecondarySide showOrder={showOrder} setShowOrder={setShowOrder} ligaDetails={{name: "Liga 1", description: "Descripcion"}} />
     {/* Header */}

@@ -5,3 +5,9 @@ Agregar validaciónes en formulario de ligas
 
 -Rapidas:
 Ya esta el redux como estado del fomuralio, falta enviarlo a la base de datos
+
+Siguientes tareas:
+agregar datos a tabla matches ✅
+mostrar la liga en componente OneLeague ✅
+Obtener one League por link 
+(Ya se obtiene los datos y se guarda en un redux, falta mostrarlo por el link y mostrar todos los demas detalles)

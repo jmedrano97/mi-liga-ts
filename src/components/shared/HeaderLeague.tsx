@@ -1,12 +1,15 @@
 import React from "react";
+import { useSelector } from "react-redux";
 
 const HeaderLeague: React.FC = () => {
+  const ligaDetails = useSelector((state: any) => state.leagueCurrent);
+
   return (
     <header>
       {/* Title and search */}
       <div className="flex flex-col md:flex-row md:justify-between md:items-center gap-4 mb-6">
         <div>
-          <h1 className="text-2xl text-gray-300">MI LIGA NOMBRE</h1>
+          <h1 className="text-2xl text-gray-300">{ligaDetails.name} </h1>
           <p className="text-gray-500">07 octubre 2022</p>
         </div>
 
