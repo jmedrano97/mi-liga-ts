@@ -5,10 +5,10 @@ import { type Leagues as LeaguesType } from "../types";
 type Props = LeaguesType;
 
 export const CardLeague: React.FC<Props> = (data) => {
-  const { img, description, name, link } = data;
+  const { img, description, name, league_link } = data;
 
   return (
-    <a href={link}>
+    <a href={`/${league_link}`}>
       <div className="bg-[#1F1D2B] p-8 rounded-xl flex flex-col items-center gap-2 text-center text-gray-300 hover:border-first border border-transparent transition duration-300 transform hover:scale-105">
         <img
           src={img}

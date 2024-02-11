@@ -1,6 +1,7 @@
 ---02/feb/2024
 agregar mensaje satisfactorio cuando se agregue o edite
 Agregar validaciónes en formulario de ligas
+agregar pantalla de error al no encontrar la liga
 
 
 -Rapidas:
@@ -9,5 +10,6 @@ Ya esta el redux como estado del fomuralio, falta enviarlo a la base de datos
 Siguientes tareas:
 agregar datos a tabla matches ✅
 mostrar la liga en componente OneLeague ✅
-Obtener one League por link 
+Obtener one League por link ✅
+arreglar foto de detalles en one liga
 (Ya se obtiene los datos y se guarda en un redux, falta mostrarlo por el link y mostrar todos los demas detalles)

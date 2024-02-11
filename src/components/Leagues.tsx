@@ -17,7 +17,7 @@ export const Leagues: React.FC<Props> = ({ leagues }) => {
           img={liga.img}
           description={liga.description}
           name={liga.name}
-          link={liga.link}
+          league_link={liga.league_link}
         />
       ))}
     </div>

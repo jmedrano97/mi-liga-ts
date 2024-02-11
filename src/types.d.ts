@@ -18,7 +18,7 @@ export interface Leagues {
     img: string;
     description: string;
     name: string;
-    link: string;
+    league_link: string;
   }
   
 export type ListOfLeagues = Leagues[];
