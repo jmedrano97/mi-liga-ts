@@ -8,7 +8,7 @@ import OneLeague from './pages/OneLeague.tsx';
 
 const App = (): JSX.Element => {
   return (
-    <div className='bg-[#262837]'>
+    <div className='bg-back1'>
       <Routes>
         <Route path="/" element={<AllLeagues />} />
         <Route path="/crear-liga" element={<CreateLeague />} />
