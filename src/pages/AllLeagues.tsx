@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import axios from 'axios';
 import {
   RiMenu3Fill,
   RiUser3Line,
@@ -12,13 +11,9 @@ import {
 import Header from "../components/shared/Header";
 import { Leagues } from '../components/Leagues';
 import { fetchLeagues } from '../api/ligas.api';
-import { useSelector } from "react-redux";
-import counterReducer from "../features/counter/counterSlice";
 
 
 function AllLeagues(): JSX.Element {
-  const counterState = useSelector((state: any) => state.counter);
-  console.log(counterState);
   const [showMenu, setShowMenu] = useState<boolean>(false);
   const [showOrder, setShowOrder] = useState<boolean>(false);
 

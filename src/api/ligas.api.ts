@@ -9,3 +9,13 @@ export const fetchLeagues = async () => {
     throw error;
   }
 };
+
+export const fetchLeagueByLink = async (link: string) => {
+  try {
+    const response = await axios.get(`http://localhost:4000/api/v1/leagueByLink/${link}`);
+    return response.data.data;
+  } catch (error) {
+    console.error('Error al obtener datos de la API: ', error);
+    throw error;
+  }
+};
