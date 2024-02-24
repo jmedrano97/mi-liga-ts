@@ -29,8 +29,8 @@ const OneLeague = () => {
             setIsLoading(true);
             try {
                 const response = await axios.get(`http://localhost:4000/api/v1/leagueByLink/${league_link}`);
-                // http://localhost:4000/api/v1/leagueByLink/
-                dispatch(setCurrentLeague(response.data));
+                console.log(response.data.data[0]);
+                dispatch(setCurrentLeague(response.data.data));
             } catch (error) {
                 console.error("Error al obtener los datos", error);
                 setLoad(false);

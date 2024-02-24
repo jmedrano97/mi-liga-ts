@@ -1,5 +1,6 @@
 import React from 'react'
 import { Table } from 'flowbite-react';
+import { useDispatch, useSelector } from 'react-redux';
 
 const tabla =[
     {
@@ -76,6 +77,8 @@ const tabla =[
     }
   
 ]
+// const league = useSelector((state: any) => state.currentLeague);
+
 
 const TablePositions: React.FC = () => {
     return (

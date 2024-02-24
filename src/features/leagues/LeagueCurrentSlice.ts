@@ -21,7 +21,7 @@ import type { PayloadAction } from '@reduxjs/toolkit'
 
   };
 
-
+  //en lugar de setCurrentLeague que sea "DetallesCurrentLeague" para asi poner la demas info por ejemplo "PosicionesCurrentLeague"
   const LeagueCurrentSlice = createSlice({
     name: 'leagueCurrent',
     initialState,
