@@ -2,7 +2,7 @@ import React from "react";
 import { useSelector } from "react-redux";
 
 const HeaderLeague: React.FC = () => {
-  const ligaDetails = useSelector((state: any) => state.leagueCurrent);
+  const ligaDetails = useSelector((state: any) => state.detailLeague);
 
   return (
     <header>

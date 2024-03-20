@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit'
 import type { PayloadAction } from '@reduxjs/toolkit'
 
-  interface LeagueCurrentData {
+  interface DetailLeague {
     league_id: number;
     name: string;
     description: string;
@@ -11,7 +11,7 @@ import type { PayloadAction } from '@reduxjs/toolkit'
 
   }
 
-  const initialState: LeagueCurrentData = {
+  const initialState: DetailLeague = {
     league_id: 0,
     name: '',
     description: '',
@@ -21,12 +21,11 @@ import type { PayloadAction } from '@reduxjs/toolkit'
 
   };
 
-  //en lugar de setCurrentLeague que sea "DetallesCurrentLeague" para asi poner la demas info por ejemplo "PosicionesCurrentLeague"
-  const LeagueCurrentSlice = createSlice({
-    name: 'leagueCurrent',
+  const DetailLeagueSlice = createSlice({
+    name: 'detailLeague',
     initialState,
     reducers: {
-      setCurrentLeague(state, action: PayloadAction<LeagueCurrentData>) {
+      setDetailLeague(state, action: PayloadAction<DetailLeague>) {
         const { league_id, name, description, created_at, league_link, img } = action.payload;
         state.league_id = league_id;
         state.name = name;
@@ -35,7 +34,7 @@ import type { PayloadAction } from '@reduxjs/toolkit'
         state.league_link = league_link;
         state.img = img;
       },
-      resetCurrentLeague(state) {
+      resetDetailLeague(state) {
         state.league_id = 0;
         state.name = '';
         state.description = '';
@@ -46,5 +45,5 @@ import type { PayloadAction } from '@reduxjs/toolkit'
     },
   });
   
-  export const { setCurrentLeague, resetCurrentLeague } = LeagueCurrentSlice.actions;
-  export default LeagueCurrentSlice.reducer;
+  export const { setDetailLeague, resetDetailLeague } = DetailLeagueSlice.actions;
+  export default DetailLeagueSlice.reducer;

@@ -1,11 +1,13 @@
 import { configureStore } from '@reduxjs/toolkit'
 import leagueFormSlice from '../features/leagues/leagueFormSlice'
-import LeagueCurrentSlice from '../features/leagues/LeagueCurrentSlice'
+import DetailLeagueSlice from '../features/leagues/DetailLeagueSlice'
+import CompetitionsLeagueSlice from '../features/leagues/CompetitionsLeagueSlice'
 
 export const store = configureStore({
   reducer: {
     leagueForm: leagueFormSlice,
-    leagueCurrent: LeagueCurrentSlice
+    detailLeague: DetailLeagueSlice,
+    competitionsLeague: CompetitionsLeagueSlice
   },
 })
 

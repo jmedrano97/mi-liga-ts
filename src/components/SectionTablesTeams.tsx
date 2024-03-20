@@ -1,7 +1,21 @@
 import React from 'react'
 import TablePositions from './flowbite/tablePositions'
+import { useSelector } from 'react-redux';
+// fetchPositionTableByCompetition
+import { fetchPositionTableByCompetition } from '../api/ligas.api';
 
 const SectionTablesTeams = () => {
+  const ligaDetails = useSelector((state: any) => state.detailLeague);
+
+  const competitions = useSelector((state: any) => state.competitionsLeague);
+
+  competitions.map((competition: any) => {
+    if(competition.typeOfCompetition_id == 1){
+      
+    }
+  });
+
+
   return (
     <div>
         {/* font-extrabold */}

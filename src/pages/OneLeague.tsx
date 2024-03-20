@@ -5,9 +5,11 @@ import HeaderLeague from '../components/shared/HeaderLeague'
 import SecondarySide from '../components/shared/SecondarySide'
 import LoadingOverlay from '../components/LoadingOverlay'
 import { useDispatch } from 'react-redux'
-import { setCurrentLeague } from '../features/leagues/LeagueCurrentSlice'
+import { setDetailLeague } from '../features/leagues/DetailLeagueSlice'
+import { setCompetitionsLeague } from '../features/leagues/CompetitionsLeagueSlice'
 import SectionTablesTeams from '../components/SectionTablesTeams'
-import {fetchLeagueByLink} from '../api/ligas.api'
+import SectionMatches from '../components/SectionMatches'
+import {fetchLeagueByLink, fetchCompetitionsByLeague} from '../api/ligas.api'
 
 
 const OneLeague = () => {
@@ -16,7 +18,7 @@ const OneLeague = () => {
     const [showMenu] = useState(false);
     const [showOrder, setShowOrder] = useState(false);
     const dispatch = useDispatch();
-    // const ligaDetails = useSelector((state: any) => state.leagueCurrent);
+    // const ligaDetails = useSelector((state: any) => state.detailLeague);
     // let load = true;
     const [load, setLoad] = useState(true);
 
@@ -25,7 +27,12 @@ const OneLeague = () => {
             setIsLoading(true);
             try {
                 const response = await fetchLeagueByLink(league_link!); 
-                dispatch(setCurrentLeague(response));
+                dispatch(setDetailLeague(response));
+
+                const competitions = await fetchCompetitionsByLeague(response.league_id);
+                dispatch(setCompetitionsLeague(competitions));
+
+
             } catch (error) {
                 console.error("Error al obtener los datos", error);
                 setLoad(false);
@@ -33,6 +40,7 @@ const OneLeague = () => {
                 setIsLoading(false);
             }
         };
+
         fetchData();
     }, [league_link,dispatch]);
 
@@ -49,6 +57,7 @@ const OneLeague = () => {
                 <div className="md:p-8 p-4">
                     {/* Header */}
                     <HeaderLeague />
+                    <SectionMatches />
                     <SectionTablesTeams />
 
 

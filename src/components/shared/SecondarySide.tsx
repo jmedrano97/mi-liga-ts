@@ -11,8 +11,7 @@ interface SecondarySideProps {
 const SecondarySide: React.FC<SecondarySideProps> = (props) => {
   
   const { showOrder, setShowOrder} = props;
-  const ligaDetails = useSelector((state: any) => state.leagueCurrent);
-  console.log({ligaDetails});
+  const ligaDetails = useSelector((state: any) => state.detailLeague);
 
   return (
     <div
