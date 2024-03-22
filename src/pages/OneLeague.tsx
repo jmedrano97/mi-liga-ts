@@ -3,18 +3,17 @@ import {useParams} from 'react-router-dom'
 import Sidebar from '../components/shared/Sidebar'
 import HeaderLeague from '../components/shared/HeaderLeague'
 import SecondarySide from '../components/shared/SecondarySide'
-import LoadingOverlay from '../components/LoadingOverlay'
 import { useDispatch } from 'react-redux'
 import { setDetailLeague } from '../features/leagues/DetailLeagueSlice'
 import { setCompetitionsLeague } from '../features/leagues/CompetitionsLeagueSlice'
 import SectionTablesTeams from '../components/SectionTablesTeams'
 import SectionMatches from '../components/SectionMatches'
 import {fetchLeagueByLink, fetchCompetitionsByLeague} from '../api/ligas.api'
+import { setLoadingOverlay } from '../features/leagues/LoadingOverlaySlice'
 
 
 const OneLeague = () => {
     const { league_link = "" } = useParams<{ league_link: string }>();
-    const [isLoading, setIsLoading] = useState(false);
     const [showMenu] = useState(false);
     const [showOrder, setShowOrder] = useState(false);
     const dispatch = useDispatch();
@@ -24,7 +23,7 @@ const OneLeague = () => {
 
     useEffect(() => {
         const fetchData = async () => {
-            setIsLoading(true);
+            dispatch(setLoadingOverlay(true));
             try {
                 const response = await fetchLeagueByLink(league_link!); 
                 dispatch(setDetailLeague(response));
@@ -36,8 +35,9 @@ const OneLeague = () => {
             } catch (error) {
                 console.error("Error al obtener los datos", error);
                 setLoad(false);
+                
             } finally {
-                setIsLoading(false);
+                dispatch(setLoadingOverlay(false));
             }
         };
 
@@ -49,7 +49,6 @@ const OneLeague = () => {
     }
     return (
         <div className="bg-back1 w-full min-h-screen">
-            <LoadingOverlay isLoading={isLoading} />
 
             <Sidebar showMenu={showMenu} />
             <SecondarySide showOrder={showOrder} setShowOrder={setShowOrder} />

@@ -22,3 +22,31 @@ export interface Leagues {
   }
   
 export type ListOfLeagues = Leagues[];
+
+export interface CompetitionLeague {
+  competition_id: number;
+  name: string;
+  league_id: number;
+  typeOfCompetitions_id: number;
+  typeOfCompetitions_name: string;
+}
+
+export type CompetitionsLeagueState = CompetitionLeague[];
+
+export interface Match {
+  match_id: number;
+  competition_id: number;
+  competition_name: string;
+  home_team_id: number;
+  home_team_name: string;
+  away_team_id: number;
+  away_team_name: string;
+  home_team_score: number;
+  away_team_score: number;
+  match_date: string;
+  created_at: string;
+  finished: boolean;
+}
+
+export type ListOfMatches = Match[];
+

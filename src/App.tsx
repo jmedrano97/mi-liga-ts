@@ -5,8 +5,12 @@ import AllLeagues from './pages/AllLeagues.jsx'
 import CreateLeague from './pages/CreateLeague.tsx';
 import EditLeague from './pages/EditLeague.tsx';
 import OneLeague from './pages/OneLeague.tsx';
+import { useSelector } from 'react-redux';
+import LoadingOverlay from './components/LoadingOverlay.tsx';
+import { RootState } from './app/store';
 
 const App = (): JSX.Element => {
+  const isLoading = useSelector((state: RootState) => state.loadingOverlay.isLoading);
   return (
     <div className='bg-back1'>
       <Routes>
@@ -16,6 +20,7 @@ const App = (): JSX.Element => {
         <Route path="/editar-liga/:id_league" element={<EditLeague />} />
         <Route path="/todo" element={<TodoIndex />} />
       </Routes>
+      <LoadingOverlay isLoading={isLoading} />
     </div>
   );
 };

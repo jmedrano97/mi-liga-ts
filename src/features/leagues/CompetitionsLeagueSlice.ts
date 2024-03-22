@@ -1,15 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 import type { PayloadAction } from '@reduxjs/toolkit';
+import type { CompetitionsLeagueState } from '../../types.d';
 
-interface CompetitionLeague {
-  competition_id: number;
-  name: string;
-  league_id: number;
-  typeOfCompetitions_id: number;
-  typeOfCompetitions_name: string;
-}
-
-type CompetitionsLeagueState = CompetitionLeague[];
 
 const initialState: CompetitionsLeagueState = [];
 

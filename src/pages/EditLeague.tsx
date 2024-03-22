@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import Header from '../components/shared/Header'
 import axios from 'axios';
-import LoadingOverlay from '../components/LoadingOverlay';
 import { useParams } from 'react-router-dom';
 import FormLeague from '../components/FormLeague';
 import { useDispatch, useSelector } from 'react-redux';
