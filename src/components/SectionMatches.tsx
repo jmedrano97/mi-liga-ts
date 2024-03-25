@@ -5,24 +5,21 @@ import type { CompetitionLeague } from '../types.d'
 import axios from 'axios'
 import {setLoadingOverlay} from '../features/leagues/LoadingOverlaySlice'
 import {type ListOfMatches, type Match} from '../types.d'
-
+import {CardMatch} from './CardMatch'
 
 
 const SectionMatches = () => {
   const dispatch = useDispatch();
-
   const competitions = useSelector((state: RootState) => state.competitionsLeague);
   const [matches, setMatches] = useState<ListOfMatches>([]);
 
   const handleSelectChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     dispatch(setLoadingOverlay(true));
     const selectedId = parseInt(event.target.value);
-    console.log('selectedId:', selectedId);
     // Hacer una solicitud a la API utilizando Axios con el ID de la competición seleccionada
     axios.get(`http://localhost:4000/api/v1/matchesByCompetition/${selectedId}`)
       .then(response => {
         setMatches(response.data.data);
-        console.log('matches:', response.data.data);
         dispatch(setLoadingOverlay(false));
       })
       .catch(error => {
@@ -52,13 +49,12 @@ const SectionMatches = () => {
 
       <div>
         <h2>Encuentros de la competición seleccionada:</h2>
-        <ul>
           {matches.map((match: Match) => (
             <div key={match.match_id}>
-              <li>{match.home_team_name} vs {match.away_team_name}</li>
+              {/* <li>{match.home_team_name} vs {match.away_team_name}</li> */}
+              < CardMatch {...match} />
             </div>
           ))}
-        </ul>
       </div>
 
 

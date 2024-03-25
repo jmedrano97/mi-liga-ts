@@ -46,6 +46,7 @@ export interface Match {
   match_date: string;
   created_at: string;
   finished: boolean;
+  matchday: number;
 }
 
 export type ListOfMatches = Match[];
