@@ -6,7 +6,6 @@ import {type Match} from '../types.d'
 // type Props = LeaguesType;
 
 export const CardMatch: React.FC<Match> = (match) => {
-  console.log(match);
   const classDivTeam = "flex items-center justify-between w-2/5 ";
   const classInputScore = `bg-back1 font-bold text-first border-0 border-b-2 text-center 
                           w-12 h-10 text-xl 
