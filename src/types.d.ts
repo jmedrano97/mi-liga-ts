@@ -51,3 +51,12 @@ export interface Match {
 
 export type ListOfMatches = Match[];
 
+export interface Team {
+  team_id: number,
+  name: string,
+  league_id: number,
+  created_at: string,
+  img: string
+}
+
+export type ListOfTeams = Team[];

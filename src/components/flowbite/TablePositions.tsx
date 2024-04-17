@@ -83,7 +83,7 @@ const tabla =[
 const TablePositions: React.FC = () => {
     return (
         <div className='me-3 mt-6'>
-            <div className="overflow-x-auto rounded-lg shadow-xl">
+            <div className="">
                 <Table hoverable className='dark text-white '>
                     <Table.Head className=''>
                     <Table.HeadCell className='text-first '>Pos</Table.HeadCell>

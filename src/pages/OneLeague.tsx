@@ -8,6 +8,7 @@ import { setDetailLeague } from '../features/leagues/DetailLeagueSlice'
 import { setCompetitionsLeague } from '../features/leagues/CompetitionsLeagueSlice'
 import SectionTablesTeams from '../components/SectionTablesTeams'
 import SectionMatches from '../components/SectionMatches'
+import SectionTeams from '../components/SectionTeams'
 import {fetchLeagueByLink, fetchCompetitionsByLeague} from '../api/ligas.api'
 import { setLoadingOverlay } from '../features/leagues/LoadingOverlaySlice'
 
@@ -56,8 +57,10 @@ const OneLeague = () => {
                 <div className="md:p-8 p-4">
                     {/* Header */}
                     <HeaderLeague />
+                    <SectionTeams />
                     <SectionMatches />
                     <SectionTablesTeams />
+                    <img src="" alt="" />
 
 
                 </div>

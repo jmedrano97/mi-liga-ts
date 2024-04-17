@@ -1,4 +1,16 @@
 import axios from 'axios';
+const protocol = 'http'
+const base_url = 'localhost:4000'
+
+export const fetchTeams = async (league_id: number) => {
+  try {
+    const response = await axios.get(`${protocol}://${base_url}/api/v1/teamsByLeague/${league_id}`)
+    return response.data
+  }catch(error){
+    console.error('Error al obtener datos de la API: ', error);
+    throw error;
+  }
+}
 
 export const fetchLeagues = async () => {
   try {

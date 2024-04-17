@@ -27,6 +27,7 @@ export default {
       },
       borderColor: {
         'first': '#ec7c6a',
+        'highlight2':'#007bff' 
       },
       gradientColorStops: {
         'first': '#ec7c6a',
